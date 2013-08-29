@@ -78,7 +78,7 @@ module Globalize
           else
             ::ActiveRecord::Base.extend(Globalize::Versioning::PaperTrail)
 
-            translation_class.has_paper_trail
+            translation_class.has_paper_trail options[:versioning_options] || {}
             delegate :version, :versions, :to => :translation
           end
         end
